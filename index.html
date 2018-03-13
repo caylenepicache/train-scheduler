@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="#">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 </head>
 
 <body>
@@ -20,36 +20,36 @@
 </div>
 
 <div class="panel panel-info mx-auto border border-info rounded">
-    <div class="panel-primary bg-info p-3">Panel with panel-default class</div>
-    <div class="panel-body p-3">Panel Content</div>
+    <div class="panel-primary bg-info p-3">Current Train Schedule</div>
+    <div id = "trainSchedule" class="panel-body p-3">Panel Content</div>
 </div>
 
 <div class="panel panel-info mx-auto border border-info rounded mt-4 mb-5">
-    <div class="panel-primary bg-info p-3">Panel with panel-default class</div>
+    <div class="panel-primary bg-info p-3">Add Train</div>
     <form class="p-3">
-        <div class="form-group ">
-            <label for="formGroupExampleInput">Example label</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Train Name</label>
+            <input id = "trainNameInput" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">Another label</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            <label for="formGroupExampleInput2">Destination</label>
+            <input id = "destinationInput" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Example label</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+            <label for="formGroupExampleInput">First Train Time (HH:mm Military Time)</label>
+            <input id = "firstTrainInput" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">Another label</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            <label for="formGroupExampleInput2">Frequency (min)</label>
+            <input id = "frequencyInput" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
         </div>
-        <button type="button" class="btn btn-info p-3 border">Info</button>
+        <button id="addInfoButton" type="button" class="btn btn-info p-3 border">Info</button>
     </form>
 </div>
 
 
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
 
