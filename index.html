@@ -8,40 +8,55 @@
     <link rel="icon" href="#">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src = "http://momentjs.com/downloads/moment.js"></script>
 </head>
 
 <body>
 
 <div class="jumbotron jumbotron-fluid mx-auto ">
     <div class="container-fluid">
-        <h1 class="display-4 text-center">Amtrak Train Schedule</h1>
+        <h1 class="display-4 text-center">Disneyland Character Meet and Greet</h1>
         <!--<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
     </div>
 </div>
 
 <div class="panel panel-info mx-auto border border-info rounded">
-    <div class="panel-primary bg-info p-3">Current Train Schedule</div>
-    <div id = "trainSchedule" class="panel-body p-3">Panel Content</div>
+    <div class="panel-primary bg-info p-3">Current Meet and Greet Schedule</div>
+    <div id = "trainSchedule" class="panel-body p-3">
+        <table style= "width:100%">
+                <tr>
+                    <th>Character Name</th>
+                    <th>Location</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Meet and Greet Time</th>
+                    <th>Minutes til Meet and Greet</th>
+                </tr>
+                <tbody id = "insertData">
+                
+                </tbody>
+        </table>
+
+    </div>
 </div>
 
 <div class="panel panel-info mx-auto border border-info rounded mt-4 mb-5">
-    <div class="panel-primary bg-info p-3">Add Train</div>
+    <div class="panel-primary bg-info p-3">Add Character</div>
     <form class="p-3">
         <div class="form-group">
-            <label for="formGroupExampleInput">Train Name</label>
-            <input id = "trainNameInput" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+            <label for="formGroupExampleInput">Character Name</label>
+            <input id = "trainNameInput" type="text" class="form-control" id="formGroupExampleInput" >
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">Destination</label>
-            <input id = "destinationInput" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            <label for="formGroupExampleInput2">Location</label>
+            <input id = "destinationInput" type="text" class="form-control" id="formGroupExampleInput2" >
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">First Train Time (HH:mm Military Time)</label>
-            <input id = "firstTrainInput" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+            <label for="formGroupExampleInput">First Meet and Greet Time (HH:mm Military Time)</label>
+            <input id = "firstTrainInput" type="text" class="form-control" id="formGroupExampleInput" >
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Frequency (min)</label>
-            <input id = "frequencyInput" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            <input id = "frequencyInput" type="text" class="form-control" id="formGroupExampleInput2" >
         </div>
         <button id="addInfoButton" type="button" class="btn btn-info p-3 border">Info</button>
     </form>

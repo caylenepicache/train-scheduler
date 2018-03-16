@@ -33,6 +33,8 @@ $("#addInfoButton").on("click", function() {
         timelogged: firebase.database.ServerValue.TIMESTAMP
     })
 
+    
+
 });
 
 database.ref().on("child_added", function(snapshot) {
@@ -42,10 +44,39 @@ database.ref().on("child_added", function(snapshot) {
     console.log(snapshot.val().firstTrain);
     console.log(snapshot.val().frequency);
 
-    /*     $("#insertData").append("<tr><td>" + childSnapshot.val().empName + "</td><td>" + childSnapshot.val().role + "</td><td>" + childSnapshot.val().startDate + "</td><td>" + monthsWorked + "</td><td>" + childSnapshot.val().monthlyRate  + "</td></tr>" */
+
+    //CONVERSIONS-----------------------------------
+    //takes current time
+    var currentTime = moment();
+    console.log("current time:" + moment().format());
+    //converts first train time given
+    var convertFirstTrainTime = moment(snapshot.val().firstTrain, 'HH:mm');
+    console.log(convertFirstTrainTime);
+    
+    //converts in minutes the difference in times of first train to now
+    var minDiffFirstTrain = currentTime.diff(convertFirstTrainTime, 'minutes');
+    console.log(minDiffFirstTrain);
+
+    //takes the remainder of minutes left by using the frequency of the train
+    var minLastArrival = minDiffFirstTrain % snapshot.val().frequency;
+    console.log(minLastArrival);
+
+    //how many minutes from frequency to the last arrival
+    var minAway = snapshot.val().frequency - minLastArrival;
+    console.log("minutes away" + minAway);
+
+    //adds minutes of the remainder to next train time
+    var nextTrain = currentTime.add(minAway, 'minutes');
+    console.log(nextTrain);
+
+    //converts the train time in the correct format
+    var convertNextTrainTime = nextTrain.format("HH:mm");
+
+
+//APPEND TO DIV----------------------
+    $("#insertData").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + convertNextTrainTime +  "</td><td>" + minAway  + "</td></tr>") 
 
 }, function(errorObject) {
     console.log("Error: " + errorObject.code);
 });
 
-//onclick function that adds values from input to #trainSchedule
