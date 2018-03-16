@@ -25,21 +25,24 @@ $("#addInfoButton").on("click", function() {
     firstTrain = $("#firstTrainInput").val().trim();
     frequency = $("#frequencyInput").val().trim();
 
-    database.ref().set({
+    database.ref().push({
         trainName: trainName,
         destination: destination,
         firstTrain: firstTrain,
-        frequency: frequency
+        frequency: frequency,
+        timelogged: firebase.database.ServerValue.TIMESTAMP
     })
 
 });
 
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
 
     console.log(snapshot.val().trainName);
     console.log(snapshot.val().destination);
     console.log(snapshot.val().firstTrain);
     console.log(snapshot.val().frequency);
+
+    /*     $("#insertData").append("<tr><td>" + childSnapshot.val().empName + "</td><td>" + childSnapshot.val().role + "</td><td>" + childSnapshot.val().startDate + "</td><td>" + monthsWorked + "</td><td>" + childSnapshot.val().monthlyRate  + "</td></tr>" */
 
 }, function(errorObject) {
     console.log("Error: " + errorObject.code);
