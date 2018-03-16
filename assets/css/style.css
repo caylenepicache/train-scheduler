@@ -1,7 +1,21 @@
 .jumbotron {
     width: 1000px;
+    font-family: 'Mouse Memoirs', sans-serif;
+    background: linear-gradient(to top, #33ccff 0%, #ff99cc 100%);
+}
+
+#bannertext {
+        font-size: 80px;
 }
 
 .panel {
     width: 1000px;
+}
+
+.panel-primary {
+    background: #33ccff;
+}
+
+body {
+    background-image: url("../images/whitediamond.png");
 }
