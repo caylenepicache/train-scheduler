@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script src = "http://momentjs.com/downloads/moment.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs|Oranienbaum|Philosopher" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="jumbotron jumbotron-fluid mx-auto ">
+<div class="jumbotron jumbotron-fluid mx-auto rounded">
     <div class="container-fluid">
         <h1 id="bannertext" class="display-4 text-center">Disneyland Character Meet and Greet</h1>
         <!--<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
     </div>
 </div>
 
-<div class="panel panel-info mx-auto border border-info rounded">
-    <div class="panel-primary p-3">Current Meet and Greet Schedule</div>
+<div class="panel panel-info mx-auto border border-info rounded ">
+    <div id= "headertext" class="panel-primary p-3 rounded">Current Meet and Greet Schedule</div>
     <div id = "trainSchedule" class="panel-body p-3">
-        <table style= "width:100%">
+        <table id = "contextbody" style= "width:100%">
                 <tr>
                     <th>Character Name</th>
                     <th>Location</th>
@@ -41,8 +41,8 @@
 </div>
 
 <div class="panel panel-info mx-auto border border-info rounded mt-4 mb-5">
-    <div class="panel-primary p-3">Add Character</div>
-    <form class="p-3">
+    <div id = "headertext" class="panel-primary p-3 rounded">Add Character</div>
+    <form id = "contextbody" class="p-3">
         <div class="form-group">
             <label for="formGroupExampleInput">Character Name</label>
             <input id = "trainNameInput" type="text" class="form-control" id="formGroupExampleInput" >
